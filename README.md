@@ -1,8 +1,7 @@
 # Flutter Cupertino Date Picker
 
-[[fork packages flutter_cupertino_date_picker]](https://pub.dev/packages/flutter_cupertino_date_picker_fork)
+[[fork packages flutter_cupertino_date_picker_fork]](https://pub.dev/packages/flutter_cupertino_date_picker_fork)
 
-[[fork packages flutter_cupertino_date_picker]](https://pub.dartlang.org/packages/flutter_cupertino_date_picker)
 
 Solve the error of flutter1.20.0 :not support DiagnosticableMixin;
 
