@@ -27,6 +27,7 @@ class DateTimePickerWidget extends StatefulWidget {
     this.onCancel,
     this.onChange,
     this.onConfirm,
+    this.selectionOverlay,
   }) : super(key: key) {
     DateTime minTime = minDateTime ?? DateTime.parse(DATE_PICKER_MIN_DATETIME);
     DateTime maxTime = maxDateTime ?? DateTime.parse(DATE_PICKER_MAX_DATETIME);
@@ -40,6 +41,7 @@ class DateTimePickerWidget extends StatefulWidget {
   final DateVoidCallback? onCancel;
   final DateValueCallback? onChange, onConfirm;
   final int minuteDivider;
+  final Widget? selectionOverlay;
 
   @override
   State<StatefulWidget> createState() => _DateTimePickerWidgetState(
@@ -289,11 +291,7 @@ class _DateTimePickerWidgetState extends State<DateTimePickerWidget> {
       height: widget.pickerTheme.pickerHeight,
       decoration: BoxDecoration(color: widget.pickerTheme.backgroundColor),
       child: CupertinoPicker.builder(
-        selectionOverlay: CupertinoPickerDefaultSelectionOverlay(
-          capLeftEdge: false,
-          capRightEdge: false,
-          background: Colors.transparent,
-        ),
+        selectionOverlay: widget.selectionOverlay ?? const CupertinoPickerDefaultSelectionOverlay(),
         backgroundColor: widget.pickerTheme.backgroundColor,
         scrollController: scrollCtrl,
         itemExtent: widget.pickerTheme.itemHeight,
