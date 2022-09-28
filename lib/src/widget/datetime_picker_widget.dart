@@ -232,7 +232,7 @@ class _DateTimePickerWidgetState extends State<DateTimePickerWidget> {
       (value) {
         _changeDaySelection(value);
       },
-      flex: dayFlex,
+      flex: 2,
       itemBuilder: (BuildContext context, int index) =>
           _renderDayPickerItemComponent(_dayRange.first + index, dayFormat),
     );
@@ -321,8 +321,9 @@ class _DateTimePickerWidgetState extends State<DateTimePickerWidget> {
   Widget _renderDayPickerItemComponent(int value, String? format) {
     DateTime dateTime = _baselineDate.add(Duration(days: value));
     return Container(
+      padding: EdgeInsets.only(left: 5),
       height: widget.pickerTheme.itemHeight,
-      alignment: Alignment.center,
+      alignment: Alignment.centerLeft,
       child: Text(
         DateTimeFormatter.formatDate(dateTime, format, widget.locale),
         style:
@@ -335,11 +336,12 @@ class _DateTimePickerWidgetState extends State<DateTimePickerWidget> {
   Widget _renderDatePickerItemComponent(int value, String format) {
     return Container(
       height: widget.pickerTheme.itemHeight,
-      alignment: Alignment.center,
+      alignment: Alignment.centerLeft,
+      padding: EdgeInsets.only(left: 20),
       child: Text(
         DateTimeFormatter.formatDateTime(value, format, widget.locale),
         style:
-            widget.pickerTheme.itemTextStyle ?? DATETIME_PICKER_ITEM_TEXT_STYLE,
+        widget.pickerTheme.itemTextStyle ?? DATETIME_PICKER_ITEM_TEXT_STYLE,
       ),
     );
   }
